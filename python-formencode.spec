@@ -13,6 +13,7 @@ Release: %mkrel %{release}
 Source0: http://cheeseshop.python.org/packages/source/F/%{Oname}/%{Oname}-%{version}.tar.bz2
 License: BSD
 Group: Development/Python
+BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildArch: noarch
 Url: http://formencode.org
 BuildRequires: python-devel
