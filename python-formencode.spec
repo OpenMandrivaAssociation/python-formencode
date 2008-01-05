@@ -2,7 +2,7 @@
 %define Oname FormEncode
 
 %define name python-%oname
-%define version 0.7.1
+%define version 0.9
 %define release 1
 
 Summary:  Python module to validate and generate form
@@ -20,9 +20,9 @@ BuildRequires: python-devel
 BuildRequires: python-setuptools
 
 %description
-FormEncode is a validation and form generation package. The validation can be 
-used separately from the form generation. The validation works on compound 
-data structures, with all parts being nestable. It is separate from HTTP or 
+FormEncode is a validation and form generation package. The validation can be
+used separately from the form generation. The validation works on compound
+data structures, with all parts being nestable. It is separate from HTTP or
 any other input mechanism.
 
 %prep
@@ -34,7 +34,7 @@ python setup.py build
 
 %install
 rm -rf %buildroot
-python setup.py install --root=$RPM_BUILD_ROOT 
+python setup.py install --root=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
