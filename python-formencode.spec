@@ -2,15 +2,15 @@
 %define Oname FormEncode
 
 %define name python-%oname
-%define version 1.1
-%define release 2
+%define version 1.2.1
+%define rel 1
 
 Summary:  Python module to validate and generate form
 Name: %{name}
 Version: %{version}
-Release: %mkrel %{release}
+Release: %mkrel %rel
 
-Source0: http://cheeseshop.python.org/packages/source/F/%{Oname}/%{Oname}-%{version}.tar.bz2
+Source0: http://cheeseshop.python.org/packages/source/F/%{Oname}/%{Oname}-%{version}.tar.gz
 License: BSD
 Group: Development/Python
 BuildRoot: %{_tmppath}/%{name}-buildroot
