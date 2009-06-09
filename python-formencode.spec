@@ -2,7 +2,7 @@
 %define Oname FormEncode
 
 %define name python-%oname
-%define version 1.2.1
+%define version 1.2.2
 %define rel 1
 
 Summary:  Python module to validate and generate form
