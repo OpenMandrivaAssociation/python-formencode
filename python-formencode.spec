@@ -42,6 +42,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc docs/ examples/
-%py_sitedir/%{oname}
-%py_sitedir/*.egg-info/
-
+%py_puresitedir/%{oname}
+%py_puresitedir/*.egg-info
