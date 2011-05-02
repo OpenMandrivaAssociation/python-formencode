@@ -2,7 +2,7 @@
 %define Oname FormEncode
 
 %define name python-%oname
-%define version 1.2.2
+%define version 1.2.4
 %define rel 1
 
 Summary:  Python module to validate and generate form
@@ -41,6 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc docs/ examples/
+%doc docs
 %py_puresitedir/%{oname}
 %py_puresitedir/*.egg-info
