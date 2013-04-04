@@ -1,19 +1,14 @@
 %define oname formencode
 %define Oname FormEncode
 
-%define name python-%oname
-%define version 1.2.4
-%define rel 1
-
 Summary:  Python module to validate and generate form
-Name: %{name}
-Version: %{version}
-Release: %mkrel %rel
+Name:    python-%oname
+Version: 1.2.6
+Release: 1
 
-Source0: http://cheeseshop.python.org/packages/source/F/%{Oname}/%{Oname}-%{version}.tar.gz
+Source0: http://cheeseshop.python.org/packages/source/F/FormEncode/FormEncode-%{version}.zip
 License: BSD
 Group: Development/Python
-BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildArch: noarch
 Url: http://formencode.org
 BuildRequires: python-devel
@@ -34,13 +29,10 @@ python setup.py build
 
 %install
 rm -rf %buildroot
-python setup.py install --root=$RPM_BUILD_ROOT
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+python setup.py install --root=%{buildroot}
+find %{buildroot}%py_puresitedir -type f -exec chmod o-w {} \;
 
 %files
-%defattr(-,root,root)
 %doc docs
 %py_puresitedir/%{oname}
 %py_puresitedir/*.egg-info
@@ -96,4 +88,5 @@ rm -rf $RPM_BUILD_ROOT
 
 * Sat Dec 10 2005 Michael Scherer <misc@mandriva.org> 0.4-1mdk
 - initial package
+
 
