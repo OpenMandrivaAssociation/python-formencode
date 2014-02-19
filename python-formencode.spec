@@ -4,7 +4,7 @@
 Summary:  Python module to validate and generate form
 Name:    python-%oname
 Version: 1.2.6
-Release: 1
+Release: 2
 
 Source0: http://cheeseshop.python.org/packages/source/F/FormEncode/FormEncode-%{version}.zip
 License: BSD
