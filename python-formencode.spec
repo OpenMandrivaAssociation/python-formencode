@@ -1,19 +1,19 @@
 %define srcname FormEncode
 
-Name:           python2-formencode
-Version:        1.2.6
-Release:        10
-Summary:        HTML form validation, generation, and convertion package  
-Group:          Development/Python
-License:        Python
-URL:            http://formencode.org/
-Source0:        http://pypi.python.org/packages/source/F/FormEncode/%{srcname}-%{version}.zip
+Name:		python2-formencode
+Version:	1.2.6
+Release:	11
+Summary:	HTML form validation, generation, and convertion package  
+Group:		Development/Python
+License:	Python
+URL:		http://formencode.org/
+Source0:	http://pypi.python.org/packages/source/F/FormEncode/%{srcname}-%{version}.zip
 
-BuildArch:      noarch
-BuildRequires: pkgconfig(python-2.7)
-BuildRequires: python-docutils
-BuildRequires: python-nose
-BuildRequires: python2-distribute
+BuildArch:	noarch
+BuildRequires:	pkgconfig(python-2.7)
+BuildRequires:	python-docutils
+BuildRequires:	python-nose
+BuildRequires:	python2-distribute
 
 %description
 FormEncode validates and converts nested structures. It allows for a 
