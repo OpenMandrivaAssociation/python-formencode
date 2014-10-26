@@ -2,12 +2,13 @@
 
 Name:		python2-formencode
 Version:	1.2.6
-Release:	11
+Release:	12
 Summary:	HTML form validation, generation, and convertion package  
 Group:		Development/Python
 License:	Python
 URL:		http://formencode.org/
 Source0:	http://pypi.python.org/packages/source/F/FormEncode/%{srcname}-%{version}.zip
+%rename		python-formencode
 
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python-2.7)
