@@ -2,7 +2,7 @@
 
 Name:		python2-formencode
 Version:	1.2.6
-Release:	14
+Release:	15
 Summary:	HTML form validation, generation, and convertion package  
 Group:		Development/Python
 License:	Python
