@@ -13,6 +13,7 @@ Source0:	https://files.pythonhosted.org/packages/2f/53/707c2b9b65ea6bedde67c21cb
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python-docutils
+BuildRequires:	python-setuptools
 BuildRequires:	python-nose
 
 %description
