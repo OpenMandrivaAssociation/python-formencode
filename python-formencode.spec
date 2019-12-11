@@ -2,7 +2,7 @@
 
 Name:		python-formencode
 Version:	1.3.1
-Release:	1
+Release:	2
 Summary:	HTML form validation, generation, and convertion package  
 Group:		Development/Python
 License:	Python
