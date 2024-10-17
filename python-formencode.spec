@@ -6,7 +6,7 @@ Release:	3
 Summary:	HTML form validation, generation, and convertion package  
 Group:		Development/Python
 License:	Python
-URL:		http://formencode.org/
+URL:		https://formencode.org/
 Source0:	https://files.pythonhosted.org/packages/2f/53/707c2b9b65ea6bedde67c21cbf7c71394f4a198620d4e9c1771214b91dcc/FormEncode-1.3.1.tar.gz
 %rename		python-formencode
 
