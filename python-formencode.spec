@@ -1,54 +1,63 @@
-%define srcname FormEncode
+%define module formencode
+%define oname FormEncode
+%bcond tests 1
 
 Name:		python-formencode
-Version:	1.3.1
-Release:	3
+Version:	2.1.1
+Release:	1
 Summary:	HTML form validation, generation, and convertion package  
 Group:		Development/Python
-License:	Python
-URL:		https://formencode.org/
-Source0:	https://files.pythonhosted.org/packages/2f/53/707c2b9b65ea6bedde67c21cbf7c71394f4a198620d4e9c1771214b91dcc/FormEncode-1.3.1.tar.gz
-%rename		python-formencode
+License:	MIT
+URL:		https://github.com/formencode/formencode
+Source0:	%{URL}/archive/%{version}/%{name}-%{version}.tar.gz
 
+BuildSystem:	python
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python-docutils
-BuildRequires:	python-setuptools
-BuildRequires:	python-nose
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(setuptools-scm)
+BuildRequires:	python%{pyver}dist(wheel)
+%if %{with tests}
+BuildRequires:	python%{pyver}dist(pytest)
+BuildRequires:	python%{pyver}dist(dnspython)
+BuildRequires:	python%{pyver}dist(pycountry)
+%endif
 
 %description
-FormEncode validates and converts nested structures. It allows for a 
-declarative form of defining the validation, and decoupled processes 
-for filling and generating forms.
+%{name} validates and converts nested structures.
+It allows for a declarative form of defining the validation,
+and decoupled processes for filling and generating forms.
 
-%files -f %{srcname}.lang
-%doc PKG-INFO docs
-%{python_sitelib}/formencode
-%{python_sitelib}/%{srcname}-%{version}-py%{py_ver}.egg-info
-%{python_sitelib}/docs/
+%build -p
+export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 
-
-#------------------------------------------------------------------------------
-
-%prep
-%setup -q -n %{srcname}-%{version}
-
-%build
-%py_build
-
-%install
-%py_install
-
-
-# Move l10n files in correct place like it's done on fedora
-for file in %{buildroot}/%{python_sitelib}/formencode/i18n/* ; do
+%install -a
+for file in %{buildroot}%{python_sitelib}/formencode/i18n/* ; do
     if [ -d $file ] ; then
-        if [ -e $file/LC_MESSAGES/%{srcname}.mo ] ; then
-            mkdir -p %{buildroot}/%{_datadir}/locale/`basename $file`/LC_MESSAGES/
-            mv $file/LC_MESSAGES/%{srcname}.mo %{buildroot}/%{_datadir}/locale/`basename $file`/LC_MESSAGES/
+        if [ -e $file/LC_MESSAGES/%{oname}.mo ] ; then
+            mkdir -p %{buildroot}%{_datadir}/locale/`basename $file`/LC_MESSAGES/
+            mv $file/LC_MESSAGES/%{oname}.mo %{buildroot}%{_datadir}/locale/`basename $file`/LC_MESSAGES/
         fi
     fi
 done
-rm -rf %{buildroot}/%{python_sitelib}/formencode/i18n
+rm -rf %{buildroot}%{python_sitelib}/formencode/i18n
 
-%find_lang %{srcname}
+%find_lang %{oname}
+
+%if %{with tests}
+%check
+export CI=true
+export PYTHONPATH="%{buildroot}%{python_sitelib}:${PWD}"
+# These tests poll dns, skip them
+skiptests+="not (test_doctests and _wrapper-formencode.validators-False-True)"
+skiptests+=" and not test_unicode_ascii_subgroup and not test_i18n"
+pytest -k "$skiptests"
+%endif
+
+%files -f %{oname}.lang
+%doc README.rst
+%license LICENSE.txt
+%{python_sitelib}/%{module}
+%{python_sitelib}/%{module}-%{version}.dist-info
