@@ -4,7 +4,7 @@
 
 Name:		python-formencode
 Version:	2.1.1
-Release:	1
+Release:	2
 Summary:	HTML form validation, generation, and convertion package  
 Group:		Development/Python
 License:	MIT
@@ -13,7 +13,7 @@ Source0:	%{URL}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildSystem:	python
 BuildArch:	noarch
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python-docutils
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
